@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Card, Button, Container } from "react-bootstrap"
+import Link from 'next/link'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 interface CompanyI {
@@ -16,7 +17,9 @@ const CompanyCard = ({company}: CompanyI) =>{
                 <Card.Text>
                     Owner: {company.owner}
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Button variant="primary" style={{ textDecoration: 'none' }}>
+                        Visit
+                </Button>
             </Card.Body>
         </Card>
       </Container>

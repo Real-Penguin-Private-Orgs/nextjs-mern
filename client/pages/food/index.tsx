@@ -1,0 +1,1 @@
+import { NextPage, GetStaticProps } from "next";
