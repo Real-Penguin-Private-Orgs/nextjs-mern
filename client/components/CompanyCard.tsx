@@ -1,17 +1,20 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Card, Button, Container } from "react-bootstrap"
+import 'bootstrap/dist/css/bootstrap.min.css'
 
+interface CompanyI {
+    company: any;
+}
 
-const CompanyCard = ({company}: any) =>{
+const CompanyCard = ({company}: CompanyI) =>{
     return(
       <Container>
-            <Card style={{ width: '18rem', marginTop: '1.5rem', display: 'inline-grid' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card key={company._id} style={{ width: '18rem', marginTop: '1.5rem', display: 'inline-grid' }}>
+            <Card.Img variant="top" src={company.logo} />
             <Card.Body>
-                <Card.Title>Nestle</Card.Title>
+                <Card.Title>{company.name}</Card.Title>
                 <Card.Text>
-                    Some quick example text to build on the card title and make up the bulk of
-                    the card's content.
+                    Owner: {company.owner}
                 </Card.Text>
                 <Button variant="primary">Go somewhere</Button>
             </Card.Body>
