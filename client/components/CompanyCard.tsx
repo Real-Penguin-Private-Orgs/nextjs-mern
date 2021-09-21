@@ -11,7 +11,11 @@ const popover = (
       <Popover.Header as="h3">Are you sure?</Popover.Header>
       <Popover.Body>
             <Button variant="danger">Yes</Button>
-            <Button variant="primary">No</Button>
+            <Button 
+                variant="primary"
+            >
+                No
+            </Button>
       </Popover.Body>
     </Popover>
 );
@@ -26,13 +30,17 @@ const CompanyCard = ({company}: CompanyI) =>{
                 <Card.Text>
                     Owner: {company.owner}
                 </Card.Text>
-                <Button variant="primary" style={{ textDecoration: 'none' }}>
+                <Button 
+                    variant="primary" 
+                    style={{ textDecoration: 'none' }}
+                    onClick={() => location.href="/companies/" + company._id}
+                >
                         Visit
                 </Button>
                 <OverlayTrigger trigger="click" placement="right" overlay={popover}>
                         <Button 
                             variant="danger" 
-                            style={{ textDecoration: 'none' }}
+                            style={{ textDecoration: 'none', marginLeft: '1rem' }}
                         >
                                 Delete
                         </Button>
