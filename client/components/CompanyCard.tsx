@@ -1,11 +1,20 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Card, Button, Container } from "react-bootstrap"
-import Link from 'next/link'
+import { Card, Button, Container, Popover, OverlayTrigger } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 interface CompanyI {
     company: any;
 }
+
+const popover = (
+    <Popover id="popover-basic">
+      <Popover.Header as="h3">Are you sure?</Popover.Header>
+      <Popover.Body>
+            <Button variant="danger">Yes</Button>
+            <Button variant="primary">No</Button>
+      </Popover.Body>
+    </Popover>
+);
 
 const CompanyCard = ({company}: CompanyI) =>{
     return(
@@ -20,6 +29,14 @@ const CompanyCard = ({company}: CompanyI) =>{
                 <Button variant="primary" style={{ textDecoration: 'none' }}>
                         Visit
                 </Button>
+                <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+                        <Button 
+                            variant="danger" 
+                            style={{ textDecoration: 'none' }}
+                        >
+                                Delete
+                        </Button>
+                </OverlayTrigger>
             </Card.Body>
         </Card>
       </Container>

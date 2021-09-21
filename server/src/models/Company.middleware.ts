@@ -23,7 +23,7 @@ export async function getOne(req: any, res: any, next: any) {
 export async function createOne(req: any, res: any, next: any) {
      let { name, owner, website, logo } = req.body;
 
-     if(!name || !owner) {
+     if(!name || !owner || !logo) {
          return schema.validate({name, owner, website, logo})
          .catch((err) => {
              res.json(err)
@@ -62,6 +62,28 @@ export async function deleteOne(req: any, res: any, next: any) {
     await Company.findByIdAndDelete({ _id: id })
     .exec((err, docs) => {
         if(err) return next(err)
+        res.json(docs);
+    })
+}
+
+export async function updateOne(req: any, res: any, next: any) {
+    let { id } = req.params;
+    if(!id) return next();
+    let { name, owner, website, logo } = req.body;
+    if(!name || !owner || !logo) {
+        return schema.validate({name, owner, website, logo})
+        .catch((err) => {
+            res.json(err)
+        })
+    }
+
+    await Company.findByIdAndUpdate({ _id: id }, {
+        name: name,
+        owner: owner,
+        website: website,
+        logo: logo
+    }, (err: any, docs: any) => {
+        if(err) return next(err);
         res.json(docs);
     })
 }
