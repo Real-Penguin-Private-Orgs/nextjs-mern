@@ -37,7 +37,7 @@ export async function createOne(req: any, res: any, next: any) {
          logo: logo
      })
 
-     newData.save()
+     await newData.save()
      .then((docs) => {
          res.json(docs)
      })

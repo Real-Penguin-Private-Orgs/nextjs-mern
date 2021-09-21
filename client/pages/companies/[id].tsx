@@ -5,6 +5,7 @@ import {
 } from "next";
 import Head from 'next/head'
 import { useRouter } from "next/router";
+import CompanyComponent from "../../components/CompanyComponent";
 
 interface Company {
     company: any;
@@ -22,10 +23,10 @@ const CompanyPage: NextPage<Company> = ({company}: Company) => {
                 <title>{company.name} - Food Databank</title>
                 <meta name="title" content="Food Databank"  />
                 <meta name="description" content="Find your favourite food" />
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href={company.logo} />
             </Head>
                 ID: {id}
-                <span>{company.name}</span>
+                <CompanyComponent company={company} / >
         </>
     )
 }

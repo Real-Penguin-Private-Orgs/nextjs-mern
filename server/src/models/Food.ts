@@ -1,19 +1,19 @@
 import { Schema, Document, model } from "mongoose";
 
 export interface Food extends Document {
-    name: string;
     brand: string;
+    flavour: string;
     company: Schema.Types.ObjectId;
     logo: string;
     added_at: Date;
 }
 
 const schema = new Schema<Food>({
-    name: {
+    brand: {
         type: String,
         required: true
     },
-    brand: {
+    flavour: {
         type: String,
         required: true
     },
