@@ -9,6 +9,17 @@ export async function getAll(req: any, res: any, next: any) {
     })
 }
 
+export async function getOne(req: any, res: any, next: any) {
+    let { id } = req.params;
+    if(!id) return next();
+
+    await Food.findById({ _id: id })
+    .exec((err, docs) => {
+        if(err) return next(err);
+        res.json(docs)
+    })
+}
+
 export async function addOne(req: any, res: any, next: any) {
     let { company_id } = req.params;
     if(!company_id) return next();
