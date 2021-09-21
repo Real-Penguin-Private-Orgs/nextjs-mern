@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import { Card, Button, Container, Popover, OverlayTrigger } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -37,7 +36,7 @@ const CompanyCard = ({company}: CompanyI) =>{
                 >
                         Visit
                 </Button>
-                <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+                <OverlayTrigger trigger="click" rootClose  placement="right" overlay={popover}>
                         <Button 
                             variant="danger" 
                             style={{ textDecoration: 'none', marginLeft: '1rem' }}
