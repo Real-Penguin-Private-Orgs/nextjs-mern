@@ -13,7 +13,7 @@ const FoodPage: NextPage<FoodI> = ({food, company}: FoodI) => {
     return(
         <>
             {food._id}
-            {company.name}
+            {food.brand}
         </>
     )
 }

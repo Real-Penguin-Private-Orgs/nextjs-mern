@@ -23,7 +23,7 @@ const FoodList = ({food}: FoodI) => {
     return(
         <>
              <Container>
-            <Card key={food._id} style={{ width: '18rem', marginTop: '1.5rem', display: 'inline-grid' }}>
+            <Card key={food._id} style={{ width: '18rem', marginTop: '1.5rem', display: 'grid' }}>
             <Card.Img variant="top" src={food.logo} />
             <Card.Body>
                 <Card.Title>{food.brand}</Card.Title>
@@ -33,7 +33,7 @@ const FoodList = ({food}: FoodI) => {
                 <Button 
                     variant="primary" 
                     style={{ textDecoration: 'none' }}
-                    onClick={() => location.href="/companies/" + food._id}
+                    onClick={() => location.href="/food/" + food._id}
                 >
                         Visit
                 </Button>
