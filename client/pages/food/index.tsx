@@ -2,13 +2,15 @@ import { NextPage, GetStaticProps } from "next";
 import FoodList from "../../components/FoodList";
 
 interface FoodI {
-    food: any;
+    food: any[];
 }
 
 const Food: NextPage<FoodI> = ({food}: FoodI) => {
     return(
         <>
-            <FoodList food={food}/>
+           {food.map((data) => (
+                <FoodList key={data._id} food={data}/>
+           ))}
         </>
     )
 }

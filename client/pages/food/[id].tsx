@@ -6,12 +6,14 @@ import {
 
 interface FoodI {
     food: any;
+    company: any;
 }
 
-const FoodPage: NextPage<FoodI> = ({food}: FoodI) => {
+const FoodPage: NextPage<FoodI> = ({food, company}: FoodI) => {
     return(
         <>
             {food._id}
+            {company.name}
         </>
     )
 }
@@ -35,10 +37,13 @@ export const getStaticPaths: GetStaticPaths = async() => {
 export const getStaticProps: GetStaticProps = async({params}: any) => {
     const res = await fetch(`${process.env.BASE_URL}/food/${params.id}`)
     const food = await res.json()
+    const companyRes = await fetch(`${process.env.BASE_URL}/company/${food.company}`)
+    const company = await companyRes.json()
 
     return {
         props: {
-            food
+            food,
+            company
         }
     }
 }
